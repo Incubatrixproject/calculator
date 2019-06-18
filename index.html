@@ -22,7 +22,7 @@
         }
         #value1, #value2{
             text-align: center;
-            font-size: 20px;
+            font-size: 24px;
             height: 50px;
             width: 100px;
             margin-top: 70px;
@@ -42,10 +42,12 @@
             margin-left: 100px;
         }
         #result{
-            font-size: 40px;
-            width: 100px;
+            font-size: 50px;
+            text-align: center;
+            color: rgb(92, 89, 89);
+            width: 200px;
             height: 60px;
-            margin-left: 150px;
+            margin-left: 100px;
         }
        
     </style>
@@ -58,19 +60,41 @@
             <input placeholder="VALOR 1" type="text" id= "value1">
             <input placeholder="VALOR 2"type="text" id= "value2">
             <select id="operator">
+                <option value="default"></option>
                 <option value="add">Soma</option>
                 <option value="min">Subtração</option>
                 <option value="div">Divisão</option>
                 <option value="mul">Multiplicação</option>
              </select>
             <button type="button" onclick="calc()">Calcular</button>
-        </div> 
-        <div id="result"></div> 
-    </div>
-    
-        
+        </div>   
+    <div id="result"></div>  
     </div>
 </body>
 <!-- atribuição para JS -->
-<script  src="main.js"></script>
+<script>
+    function calc(){
+        var v1 = document.getElementById('value1')
+        var v2 = document.getElementById('value2')
+        var valor1 = Number(v1.value)
+        var valor2 = Number(v2.value)
+        var index = operator.selectedIndex
+        if(index == 1){
+            soma = valor1 + valor2
+            result.innerText= `${soma}`
+        }
+        if(index == 2){
+            subtracao = valor1 - valor2
+            result.innerText= `${subtracao}`
+        }
+        if(index == 3){
+            divisao = valor1 / valor2
+            result.innerText= `${divisao}`
+        }
+        if(index == 4){
+            multiplicacao = valor1 * valor2
+            result.innerText= `${multiplicacao}`
+        }
+    }
+</script>
 </html>
